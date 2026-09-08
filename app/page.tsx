@@ -76,8 +76,7 @@ export default function Home() {
 
     <section className="hero" id="top" aria-labelledby="hero-title">
       <HeroVideo />
-      <div className="hero-content"><p className="eyebrow hero-eyebrow">WEDDFOLIO · HONG KONG</p><h1 id="hero-title">Your wedding,<br /><em>beautifully told.</em></h1><div className="hero-bottom"><p>Bespoke digital wedding experiences created around your story, your celebration and the people sharing it with you.</p><a className="text-link light" href="#enquire">Begin yours <Arrow /></a></div></div>
-      <a className="scroll-cue" href="#stories">Explore WEDDFOLIO <span aria-hidden="true">↓</span></a>
+      <div className="hero-content"><p className="eyebrow hero-eyebrow">WEDDFOLIO · HONG KONG</p><h1 id="hero-title">Your wedding,<br /><em>beautifully told.</em></h1><div className="hero-bottom"><p>Bespoke digital wedding experiences created around your story, your celebration and the people sharing it with you.</p></div></div>
     </section>
 
     <section className="manifesto" id="stories" aria-labelledby="manifesto-title"><p className="eyebrow reveal">Every love story deserves its own place</p><h2 className="reveal" id="manifesto-title">Made for one story.<br /><em>Yours.</em></h2><p className="manifesto-copy reveal">WEDDFOLIO creates individually considered wedding websites that bring your story, invitations, celebration details, guest experience and memories together in one beautifully designed digital home.</p><div className="manifesto-mark" aria-hidden="true">W</div></section>
