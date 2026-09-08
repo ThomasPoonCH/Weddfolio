@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const chapters = [
   ['01', 'Your story', 'A place to introduce who you are, how you met and the journey leading to your celebration.'],
@@ -29,6 +29,28 @@ function EditorialMedia({ className = '', label, tone = 'stone' }: { className?:
   return <div className={`editorial-media tone-${tone} ${className}`} role="img" aria-label={label}><i aria-hidden="true" /></div>;
 }
 
+function HeroVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updatePlayback = () => {
+      if (motionPreference.matches) videoRef.current?.pause();
+      else videoRef.current?.play().catch(() => undefined);
+    };
+    updatePlayback();
+    motionPreference.addEventListener('change', updatePlayback);
+    return () => motionPreference.removeEventListener('change', updatePlayback);
+  }, []);
+
+  return <div className="editorial-media hero-media" role="img" aria-label="Bride and groom celebrating beside the coast">
+    <video ref={videoRef} autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+      <source src="./media/weddfolio-hero.mp4" type="video/mp4" />
+    </video>
+    <i aria-hidden="true" />
+  </div>;
+}
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,7 +75,7 @@ export default function Home() {
     </header>
 
     <section className="hero" id="top" aria-labelledby="hero-title">
-      <EditorialMedia className="hero-media" label="Atmospheric wedding celebration photography placeholder" tone="hero" />
+      <HeroVideo />
       <div className="hero-content"><p className="eyebrow hero-eyebrow">WEDDFOLIO · HONG KONG</p><h1 id="hero-title">Your wedding,<br /><em>beautifully told.</em></h1><div className="hero-bottom"><p>Bespoke digital wedding experiences created around your story, your celebration and the people sharing it with you.</p><a className="text-link light" href="#enquire">Begin yours <Arrow /></a></div></div>
       <a className="scroll-cue" href="#stories">Explore WEDDFOLIO <span aria-hidden="true">↓</span></a>
     </section>
