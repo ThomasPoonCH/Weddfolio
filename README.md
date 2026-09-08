@@ -24,7 +24,8 @@ npm run dev
 npm run build
 ```
 
-The static site is generated in `dist/client`.
+The static site is generated in `dist/client`. The Pages workflow also normalizes
+the generated asset directory for GitHub's repository-path hosting.
 
 ## Replacing media placeholders
 
