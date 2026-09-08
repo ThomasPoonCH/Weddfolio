@@ -24,9 +24,9 @@ const journey = [
 
 function Arrow() { return <span aria-hidden="true">↗</span>; }
 
-function EditorialMedia({ className = '', label, tone = 'stone' }: { className?: string; label: string; tone?: string }) {
+function EditorialMedia({ className = '', label, tone = 'stone', src }: { className?: string; label: string; tone?: string; src?: string }) {
   // Replace with final WEDDFOLIO photography.
-  return <div className={`editorial-media tone-${tone} ${className}`} role="img" aria-label={label}><i aria-hidden="true" /></div>;
+  return <div className={`editorial-media tone-${tone} ${className}`} role="img" aria-label={label}>{src && <img src={src} alt="" loading="lazy" />}<i aria-hidden="true" /></div>;
 }
 
 function HeroVideo() {
@@ -81,7 +81,7 @@ export default function Home() {
 
     <section className="manifesto" id="stories" aria-labelledby="manifesto-title"><p className="eyebrow reveal">Every love story deserves its own place</p><h2 className="reveal" id="manifesto-title">Made for one story.<br /><em>Yours.</em></h2><p className="manifesto-copy reveal">WEDDFOLIO creates individually considered wedding websites that bring your story, invitations, celebration details, guest experience and memories together in one beautifully designed digital home.</p><div className="manifesto-mark" aria-hidden="true">W</div></section>
 
-    <figure className="atmosphere reveal"><EditorialMedia label="A quiet, cinematic wedding detail" tone="linen" /><figcaption>A celebration, considered in every detail.</figcaption></figure>
+    <figure className="atmosphere reveal"><EditorialMedia label="An elegant wedding table overlooking the sea" tone="linen" src="./media/made-for-one-story.png" /><figcaption>A celebration, considered in every detail.</figcaption></figure>
 
     <section className="experience" id="experience" aria-labelledby="experience-title">
       <header className="section-intro reveal"><p className="eyebrow">The experience</p><h2 id="experience-title">Everything your guests need.<br /><em>Nothing that does not belong.</em></h2></header>
