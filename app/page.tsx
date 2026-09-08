@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const chapters = [
-  ['01', 'Your story', 'A place to introduce who you are, how you met and the journey leading to your celebration.'],
+  ['01', 'Your story', 'A place to introduce who you are, how you met and the journey leading to your celebration.', './media/your-story.png'],
   ['02', 'Your celebration', 'Dates, venues, schedules, dress guidance, travel information and everything guests need to arrive feeling prepared.'],
   ['03', 'Your guests', 'Beautifully considered RSVP journeys designed to make responding feel like part of the invitation itself.'],
   ['04', 'Your memories', 'A lasting digital space for photographs, moments and the story that remains long after the wedding day.'],
@@ -85,7 +85,7 @@ export default function Home() {
 
     <section className="experience" id="experience" aria-labelledby="experience-title">
       <header className="section-intro reveal"><p className="eyebrow">The experience</p><h2 id="experience-title">Everything your guests need.<br /><em>Nothing that does not belong.</em></h2></header>
-      <div className="chapters">{chapters.map(([number, title, copy], index) => <article className={`chapter reveal ${index % 2 ? 'reverse' : ''}`} key={number}><EditorialMedia label={`${title} wedding photography placeholder`} tone={['sage', 'amber', 'plum', 'slate'][index]} /><div className="chapter-copy"><span className="number">{number}</span><h3>{title}</h3><p>{copy}</p></div></article>)}</div>
+      <div className="chapters">{chapters.map(([number, title, copy, src], index) => <article className={`chapter reveal ${index % 2 ? 'reverse' : ''}`} key={number}><EditorialMedia label={src ? `${title} wedding portrait` : `${title} wedding photography placeholder`} tone={['sage', 'amber', 'plum', 'slate'][index]} src={src} /><div className="chapter-copy"><span className="number">{number}</span><h3>{title}</h3><p>{copy}</p></div></article>)}</div>
     </section>
 
     <section className="personal" id="about" aria-labelledby="personal-title">
