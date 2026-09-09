@@ -53,11 +53,15 @@ function HeroVideo() {
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [quote, setQuote] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 48);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 48);
+      setPastHero(window.scrollY >= window.innerHeight - 100);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')), { threshold: .12 });
@@ -66,7 +70,7 @@ export default function Home() {
   }, []);
 
   return <main>
-    <header className={`site-header ${scrolled || menuOpen ? 'is-scrolled' : ''} ${menuOpen ? 'menu-active' : ''}`}>
+    <header className={`site-header ${scrolled || menuOpen ? 'is-scrolled' : ''} ${pastHero ? 'past-hero' : ''} ${menuOpen ? 'menu-active' : ''}`}>
       <nav className="desktop-nav desktop-nav-left" aria-label="Primary navigation, first half"><a href="#stories">Stories</a><a href="#experience">Experience</a></nav>
       <a className="brand-lockup" href="#top" aria-label="WEDDFOLIO home"><img src="./media/weddfolio-mark.png" alt="" /><span>W E D D F O L I O</span></a>
       <nav className="desktop-nav desktop-nav-right" aria-label="Primary navigation, second half"><a href="#collections">Collections</a><a href="#about">About</a></nav>

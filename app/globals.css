@@ -25,10 +25,15 @@
 .brand-lockup img{display:block;width:8rem;height:4.2rem;object-fit:contain;transition:filter .8s var(--ease)}
 .brand-lockup span{display:block;width:max-content;font-family:var(--font-italiana),serif;font-size:calc(.53rem + 6px);font-weight:400;letter-spacing:.02em;line-height:1;text-align:center;white-space:nowrap;transform:translateY(3px);-webkit-text-stroke:.22px currentColor}
 .site-header.is-scrolled .brand-lockup img{filter:invert(1)}
+.brand-lockup span{transition:opacity .55s var(--ease),visibility .55s var(--ease),transform .55s var(--ease)}
+.site-header.past-hero .brand-lockup span{opacity:0;visibility:hidden;transform:translateY(-2px)}
+
+.hero h1{line-height:.92}
 
 @media(max-width:800px){
   .brand-lockup{position:absolute;left:50%;transform:translateX(-50%);width:6.8rem;gap:.12rem}
   .brand-lockup img{width:6.5rem;height:3.5rem}
   .brand-lockup span{font-size:calc(.45rem + 6px);transform:translateY(3px)}
+  .hero h1{line-height:.94}
   .menu-trigger{grid-column:2;justify-self:end;font-size:calc(.65rem + 3px)}
 }
