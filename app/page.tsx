@@ -67,9 +67,9 @@ export default function Home() {
 
   return <main>
     <header className={`site-header ${scrolled || menuOpen ? 'is-scrolled' : ''} ${menuOpen ? 'menu-active' : ''}`}>
-      <a className="wordmark" href="#top" aria-label="WEDDFOLIO home">WEDDFOLIO</a>
-      <nav className="desktop-nav" aria-label="Primary navigation"><a href="#stories">Stories</a><a href="#experience">Experience</a><a href="#collections">Collections</a><a href="#about">About</a></nav>
-      <a className="header-cta" href="#enquire">Begin yours <Arrow /></a>
+      <nav className="desktop-nav desktop-nav-left" aria-label="Primary navigation, first half"><a href="#stories">Stories</a><a href="#experience">Experience</a></nav>
+      <a className="brand-lockup" href="#top" aria-label="WEDDFOLIO home"><img src="./media/weddfolio-mark.png" alt="" /><span>W E D D F O L I O</span></a>
+      <nav className="desktop-nav desktop-nav-right" aria-label="Primary navigation, second half"><a href="#collections">Collections</a><a href="#about">About</a></nav>
       <button className="menu-trigger" type="button" aria-expanded={menuOpen} aria-controls="mobile-menu" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</button>
       <div id="mobile-menu" className={`mobile-menu ${menuOpen ? 'is-open' : ''}`} aria-hidden={!menuOpen}><nav aria-label="Mobile navigation">{['Stories', 'Experience', 'Collections', 'About'].map((item, index) => <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)}><span>0{index + 1}</span>{item}</a>)}</nav><a className="mobile-enquire" href="#enquire" onClick={() => setMenuOpen(false)}>Begin yours <Arrow /></a></div>
     </header>
